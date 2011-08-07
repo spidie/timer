@@ -97,14 +97,14 @@ Timer.prototype = {
     var seconds = t % 60;
     var text = minutes + ':' + (seconds < 10? '0' + seconds: seconds);
 
-    if (t < 60) {
+    if (t < 10) {
       this.background.attr('class', 'warning');
     }
-    else if (t >= 60) {
+    else if (t >= 10) {
       this.background.attr('class', 'ok');
     }
 
-    if (t < 10) {
+    if (t < 5) {
       this.element.attr('class', 'ohshit ' + Timer.cr[this._status].toLowerCase());
     }
     else {
@@ -121,8 +121,8 @@ Timer.prototype = {
 
 jQuery(document).ready(function($) {
   var hash = window.location.hash.substring(1);
-  var mins = parseInt(hash) > 0? parseInt(hash): 5;
-  new Timer(60 * mins, $('#timer'), $('#wrapper'));
+  var secs = parseInt(hash) > 0? parseInt(hash): 5;
+  new Timer(secs, $('#timer'), $('#wrapper'));
   $('#timer').fit({width: $(window).width(), height: $(window).height()});
 
   $(window).resize(function() {
