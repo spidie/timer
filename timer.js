@@ -121,7 +121,7 @@ Timer.prototype = {
 
 jQuery(document).ready(function($) {
   var hash = window.location.hash.substring(1);
-  var secs = parseInt(hash) > 0? parseInt(hash): 5;
+  var secs = parseInt(hash) > 0? parseInt(hash): 30;
   new Timer(secs, $('#timer'), $('#wrapper'));
   $('#timer').fit({width: $(window).width(), height: $(window).height()});
 
